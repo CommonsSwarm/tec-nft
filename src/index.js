@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Connect } from '@1hive/connect-react'
+
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+const orgAddress = process.env.REACT_APP_ORG_ADDRESS.toLocaleLowerCase()
+const network = parseInt(process.env.REACT_APP_CHAIN_ID)
+
+console.log(orgAddress)
+console.log(network);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Connect
+      location={orgAddress}
+      connector="thegraph"
+      options={{network}}
+    >
+      <App />
+    </Connect>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
