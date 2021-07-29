@@ -1,29 +1,23 @@
 import React from 'react'
-import { Main } from '@commonsswarm/ui'
 import Heading from './Heading.svg'
-import Nft from './components/nft'
-// import TopContributors from './components/top-contributors'
+import Nft from './components/Nft'
+import TopContributors from './components/TopContributors'
 import { useContributorsSubscription } from './hooks/useSubscriptions'
 
 function App() {
-  const contributors = useContributorsSubscription({
+  const [contributors] = useContributorsSubscription({
     count: 10,
     orderBy: 'totalValue',
     orderDirection: 'desc',
   })
-  console.log(contributors)
+
   return (
-    <Main
-      theme="dark"
-      assetsUrl="/aragon-ui"
-      layout={false}
-      scrollView={false}
-    >
+    <div>
       <img src={Heading} alt="Hatch" />
       <Nft />
-      {/* <TopContributors contributors={contributors} /> */}
-    </Main>
-  );
+      <TopContributors contributors={contributors} />
+    </div>
+  )
 }
 
-export default App;
+export default App

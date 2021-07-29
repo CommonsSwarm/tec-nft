@@ -8,7 +8,7 @@ const FORMAT = { groupSize: 3, decimalSeparator: '.' }
  * @param {Number} decimals - decimals of the value to convert
  * @returns {BigNumber} the converted value
  */
- export const fromDecimals = (value, decimals) => {
+export const fromDecimals = (value, decimals) => {
   return new BigNumber(value).shiftedBy(-decimals)
 }
 
@@ -25,7 +25,7 @@ const FORMAT = { groupSize: 3, decimalSeparator: '.' }
  * @param {String} opts.numberSuffix - suffix to put at the end, default ''
  * @returns {String} the formatted value
  */
- export const formatBigNumber = (
+export const formatBigNumber = (
   value,
   decimals,
   {
