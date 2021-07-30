@@ -4,6 +4,7 @@ import Nft from './components/Nft'
 import TopContributors from './components/TopContributors'
 import { useContributorsSubscription } from './hooks/useSubscriptions'
 import { useAppState } from './providers/AppState'
+import { Layout } from '@commonsswarm/ui'
 
 function App() {
   const [contributors] = useContributorsSubscription({
@@ -25,8 +26,10 @@ function App() {
   return (
     <div>
       <img src={Heading} alt="Hatch" />
-      <Nft minBid={minBid} endDate={endDate} />
-      <TopContributors contributors={contributors} />
+      <Layout>
+        <Nft minBid={minBid} endDate={endDate} />
+        <TopContributors contributors={contributors} />
+      </Layout>
     </div>
   )
 }
