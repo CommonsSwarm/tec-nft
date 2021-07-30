@@ -1,10 +1,7 @@
-import { Button } from '@commonsswarm/ui'
 import React from 'react'
-import { useAppState } from '../providers/AppState'
+import { Button, Timer } from '@commonsswarm/ui'
 
-function Nft() {
-  const { hatchConnector } = useAppState()
-  console.log(hatchConnector)
+function Nft({ minBid, endDate }) {
   return (
     <div>
       <img src="/bot.png" alt="hatch bot" />
@@ -15,7 +12,11 @@ function Nft() {
         </h2>
         <div>
           <div>Minimum to participate</div>
-          2000 wxDAI
+          {minBid}
+        </div>
+        <div>
+          <div>Hatch ending in</div>
+          <Timer end={endDate} />
         </div>
       </>
       <Button href="https://hatch.tecommons.org">

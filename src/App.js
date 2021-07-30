@@ -3,6 +3,7 @@ import Heading from './Heading.svg'
 import Nft from './components/Nft'
 import TopContributors from './components/TopContributors'
 import { useContributorsSubscription } from './hooks/useSubscriptions'
+import { useAppState } from './providers/AppState'
 
 function App() {
   const [contributors] = useContributorsSubscription({
@@ -10,11 +11,21 @@ function App() {
     orderBy: 'totalValue',
     orderDirection: 'desc',
   })
+  const {
+    generalConfig: {
+      hatchConfig: { openDate, period },
+    },
+  } = useAppState()
+
+  const minBid =
+    contributors && contributors[contributors.length - 1]?.formattedTotalValue
+
+  const endDate = new Date((parseInt(openDate) + parseInt(period)) * 1000)
 
   return (
     <div>
       <img src={Heading} alt="Hatch" />
-      <Nft />
+      <Nft minBid={minBid} endDate={endDate} />
       <TopContributors contributors={contributors} />
     </div>
   )
