@@ -5,6 +5,7 @@ import TopContributors from './components/TopContributors'
 import { useContributorsSubscription } from './hooks/useSubscriptions'
 import { useAppState } from './providers/AppState'
 import { Layout } from '@commonsswarm/ui'
+import GlobalFonts from './fonts/fonts'
 
 function App() {
   const [contributors] = useContributorsSubscription({
@@ -27,6 +28,7 @@ function App() {
     <div>
       <img src={Heading} alt="Hatch" />
       <Layout>
+        <GlobalFonts />
         <Nft minBid={minBid} endDate={endDate} />
         <TopContributors contributors={contributors} />
       </Layout>
