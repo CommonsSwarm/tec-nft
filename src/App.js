@@ -27,7 +27,7 @@ function App() {
 
   return (
     <Background>
-      <img src={Heading} alt="Hatch" />
+      <img src={Heading} style={{ maxWidth: '100vw' }} alt="Hatch" />
       <Layout style={{ marginTop: '25px' }}>
         <GlobalFonts />
         <Nft minBid={minBid} endDate={endDate} />
@@ -42,4 +42,5 @@ export default App
 const Background = styled.div`
   background-color: #0b0a15;
   overflow: hidden;
+  max-width: 100vw;
 `
