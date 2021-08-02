@@ -6,6 +6,7 @@ import { useContributorsSubscription } from './hooks/useSubscriptions'
 import { useAppState } from './providers/AppState'
 import { Layout } from '@commonsswarm/ui'
 import GlobalFonts from './fonts/fonts'
+import styled from 'styled-components'
 
 function App() {
   const [contributors] = useContributorsSubscription({
@@ -25,15 +26,20 @@ function App() {
   const endDate = new Date((parseInt(openDate) + parseInt(period)) * 1000)
 
   return (
-    <div>
+    <Background>
       <img src={Heading} alt="Hatch" />
-      <Layout>
+      <Layout style={{ marginTop: '25px' }}>
         <GlobalFonts />
         <Nft minBid={minBid} endDate={endDate} />
         <TopContributors contributors={contributors} />
       </Layout>
-    </div>
+    </Background>
   )
 }
 
 export default App
+
+const Background = styled.div`
+  background-color: #0b0a15;
+  overflow: hidden;
+`
