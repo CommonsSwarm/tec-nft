@@ -27,10 +27,10 @@ export const generateTimeDisplay = endDate => {
   const rightJustNow = new Date().getTime()
   const runway = endDate - rightJustNow
   const stateObj = {
-    days: Math.floor(runway / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((runway % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-    minutes: Math.floor((runway % (1000 * 60 * 60)) / (1000 * 60)),
-    seconds: Math.floor((runway % (1000 * 60)) / 1000),
+    days: Math.floor(runway / (1000 * 60 * 60 * 24)) || 0,
+    hours: Math.floor((runway % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) || 0,
+    minutes: Math.floor((runway % (1000 * 60 * 60)) / (1000 * 60)) || 0,
+    seconds: Math.floor((runway % (1000 * 60)) / 1000) || 0,
   }
   return stateObj
 }
