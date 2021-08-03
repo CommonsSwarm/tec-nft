@@ -98,6 +98,7 @@ const Title = styled.h1`
   text-transform: uppercase;
   @media (max-width: 1150px) {
     text-align: center;
+    font-size: 60px;
   }
 `
 
@@ -107,6 +108,7 @@ const SubTitle = styled.h2`
   font-weight: 400;
   @media (max-width: 1150px) {
     text-align: center;
+    font-size: 14px;
   }
 `
 
@@ -128,6 +130,9 @@ const Requirements = styled.div`
   font-family: 'Bai Jamjuree';
   font-size: 18px;
   font-weight: 400;
+  @media (max-width: 1150px) {
+    font-size: 16px;
+  }
 `
 
 const CurrencyType = styled.div`
@@ -135,12 +140,18 @@ const CurrencyType = styled.div`
   font-size: 18px;
   font-weight: 400;
   display: inline;
+  @media (max-width: 1150px) {
+    font-size: 16px;
+  }
 `
 
 const Currency = styled.div`
   font-family: 'Inter';
   font-size: 44px;
   font-weight: 700;
+  @media (max-width: 1150px) {
+    font-size: 40px;
+  }
 `
 
 const ConvertedBid = styled.div`
@@ -151,6 +162,9 @@ const ConvertedBid = styled.div`
   top: -5px;
   text-align: left;
   opacity: 60%;
+  @media (max-width: 1150px) {
+    font-size: 12px;
+  }
 `
 
 const CounterWrapper = styled.div`
@@ -169,6 +183,9 @@ const DayCounter = styled.div`
   display: flex;
   flex-direction: column;
   align-self: flex-end;
+  @media (max-width: 1150px) {
+    font-size: 40px;
+  }
 `
 
 const TimeCounter = styled.div`
@@ -180,6 +197,9 @@ const TimeCounter = styled.div`
   display: flex;
   flex-direction: column;
   align-self: flex-end;
+  @media (max-width: 1150px) {
+    font-size: 22px;
+  }
 `
 
 const CounterContent = styled.div`
@@ -193,6 +213,9 @@ const CounterSubtitle = styled.div`
   font-weight: 400;
   color: white;
   opacity: 60%;
+  @media (max-width: 1150px) {
+    font-size: 12px;
+  }
 `
 
 const CustomButton = styled(Button)`
@@ -205,6 +228,7 @@ const CustomButton = styled(Button)`
   @media (max-width: 1150px) {
     display: flex;
     margin: auto;
+    font-size: 16px;
   }
 `
 

@@ -40,12 +40,18 @@ const WrapperTitle = styled.div`
   font-family: 'Inter';
   font-size: 18px;
   font-weight: 700;
+  @media (max-width: 1150px) {
+    font-size: 16px;
+  }
 `
 
 const WrapperSubTitle = styled.div`
   font-family: 'Inter';
   font-size: 14px;
   font-weight: 400;
+  @media (max-width: 1150px) {
+    font-size: 13px;
+  }
 `
 
 const Contributor = styled.div`
@@ -61,6 +67,9 @@ const Position = styled.div`
   font-weight: 400;
   padding-right: 8px;
   width: 32.7px;
+  @media (max-width: 1150px) {
+    font-size: 16px;
+  }
 `
 
 const Contribuition = styled.div`
@@ -68,6 +77,9 @@ const Contribuition = styled.div`
   font-size: 18px;
   font-weight: 400;
   margin-left: auto;
+  @media (max-width: 1150px) {
+    font-size: 16px;
+  }
 `
 
 export default TopContributors
