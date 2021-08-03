@@ -150,6 +150,7 @@ const ConvertedBid = styled.div`
   position: relative;
   top: -5px;
   text-align: left;
+  opacity: 60%;
 `
 
 const CounterWrapper = styled.div`
