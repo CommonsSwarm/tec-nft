@@ -192,6 +192,7 @@ const CounterSubtitle = styled.div`
   font-size: 13px;
   font-weight: 400;
   color: white;
+  opacity: 60%;
 `
 
 const CustomButton = styled(Button)`
