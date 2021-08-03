@@ -26,7 +26,7 @@ const TopContributors = ({ contributors = [] }) => {
 const Wrapper = styled.div`
   background-color: inherit;
   max-width: 500px;
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     margin: auto;
     max-width: 380px;
   }

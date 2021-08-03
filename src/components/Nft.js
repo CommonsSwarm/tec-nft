@@ -85,7 +85,7 @@ function Nft({ minBid, endDate }) {
 
 const BotImg = styled.img`
   box-shadow: -20px -20px #defb48;
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     display: flex;
     margin: auto;
   }
@@ -96,7 +96,7 @@ const Title = styled.h1`
   font-size: 66px;
   font-weight: 700;
   text-transform: uppercase;
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     text-align: center;
   }
 `
@@ -105,7 +105,7 @@ const SubTitle = styled.h2`
   font-family: 'Inter';
   font-size: 16px;
   font-weight: 400;
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     text-align: center;
   }
 `
@@ -116,7 +116,7 @@ const Wrapper = styled.div`
   max-width: 500px;
   margin-top: 10%;
   margin-bottom: 40px;
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -155,7 +155,7 @@ const ConvertedBid = styled.div`
 
 const CounterWrapper = styled.div`
   display: flex;
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     justify-content: center;
   }
 `
@@ -202,7 +202,7 @@ const CustomButton = styled(Button)`
   text-transform: uppercase;
   width: 370px;
   height: 60px;
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     display: flex;
     margin: auto;
   }

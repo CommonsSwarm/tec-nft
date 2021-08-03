@@ -53,7 +53,12 @@ const Background = styled.div`
     background-position: 25% 0%;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     padding-left: 0;
+    background-position: 0;
+  }
+
+  @media (max-width: 900px) {
+    background-position: 25% 0%;
   }
 `
