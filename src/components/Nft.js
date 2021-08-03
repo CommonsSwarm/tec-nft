@@ -15,7 +15,8 @@ function Nft({ minBid, endDate }) {
   )
   const convertedAmount = convertionFactor * minAmount
 
-  const symbol = minBid?.split(' ')[1]
+  const symbol =
+    minBid?.split(' ')[1] === 'WXDAI' ? 'wxDAI' : minBid?.split(' ')[1]
 
   useEffect(() => {
     setTimeDisplay(generateTimeDisplay(endDate))

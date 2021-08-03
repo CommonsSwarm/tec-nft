@@ -13,10 +13,10 @@ const TopContributors = ({ contributors = [] }) => {
         <Contributor key={account}>
           <Position>{index + 1}. </Position>
           <Position>{`${account.slice(0, 9)}...${account.slice(-9)}`}</Position>
-          <Contribuition>{`${formattedTotalValue.slice(
-            0,
-            -6
-          )} wxDAI`}</Contribuition>
+          <Contribuition>{`${formattedTotalValue.replace(
+            'WXDAI',
+            'wxDAI'
+          )}`}</Contribuition>
         </Contributor>
       ))}
     </Wrapper>
