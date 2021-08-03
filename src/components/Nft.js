@@ -46,10 +46,12 @@ function Nft({ minBid, endDate }) {
                 </Currency>
               </div>
               <div>
-                <Requirements>Hatch ending in</Requirements>
+                <Requirements>Hatch Ending In:</Requirements>
                 <CounterWrapper>
                   <DayCounter>
-                    <CounterContent>{timeDisplay.days}</CounterContent>
+                    <CounterContent>
+                      <span>{timeDisplay.days}</span>
+                    </CounterContent>
                     <CounterSubtitle>Days</CounterSubtitle>
                   </DayCounter>
                   <TimeCounter>
@@ -109,7 +111,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: 500px;
-  margin-top: 15%;
+  margin-top: 10%;
   margin-bottom: 40px;
   @media (max-width: 900px) {
     flex-direction: column;
@@ -147,7 +149,7 @@ const CounterWrapper = styled.div`
 
 const DayCounter = styled.div`
   font-family: 'Inter';
-  font-size: 44px;
+  font-size: 24px;
   font-weight: 700;
   color: white;
   padding: 0px 10px;
