@@ -1,10 +1,11 @@
 import React from 'react'
-import Heading from './Heading.svg'
 import Nft from './components/Nft'
 import TopContributors from './components/TopContributors'
 import { useContributorsSubscription } from './hooks/useSubscriptions'
 import { useAppState } from './providers/AppState'
 import { Layout } from '@commonsswarm/ui'
+import GlobalFonts from './fonts/fonts'
+import styled from 'styled-components'
 
 function App() {
   const [contributors] = useContributorsSubscription({
@@ -24,14 +25,38 @@ function App() {
   const endDate = new Date((parseInt(openDate) + parseInt(period)) * 1000)
 
   return (
-    <div>
-      <img src={Heading} alt="Hatch" />
-      <Layout>
+    <Background>
+      <Layout style={{ marginTop: '50px' }} breakpoints={{ large: 901 }}>
+        <GlobalFonts />
         <Nft minBid={minBid} endDate={endDate} />
         <TopContributors contributors={contributors} />
       </Layout>
-    </div>
+    </Background>
   )
 }
 
 export default App
+
+const Background = styled.div`
+  background-image: url('/bg.png');
+  background-size: cover;
+  overflow: hidden;
+  width: 100vw;
+
+  @media (max-width: 1440px) {
+    padding-left: 10vw;
+  }
+
+  @media (max-width: 1300px) {
+    background-position: 25% 0%;
+  }
+
+  @media (max-width: 1150px) {
+    padding-left: 0;
+    background-position: 0;
+  }
+
+  @media (max-width: 900px) {
+    background-position: 25% 0%;
+  }
+`
