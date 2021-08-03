@@ -43,9 +43,17 @@ const Background = styled.div`
   background-image: url('/bg.png');
   background-size: cover;
   overflow: hidden;
-  max-width: 100vw;
+  width: 100vw;
+
+  @media (max-width: 1440px) {
+    padding-left: 10vw;
+  }
+
+  @media (max-width: 1300px) {
+    background-position: 25% 0%;
+  }
 
   @media (max-width: 900px) {
-    background-position: 25% 0%;
+    padding-left: 0;
   }
 `
