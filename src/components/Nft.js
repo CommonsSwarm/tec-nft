@@ -44,13 +44,16 @@ function Nft({ minBid, endDate }) {
                   {minBid ? minBid.slice(0, -5) : ''}
                   <CurrencyType>wxDAI</CurrencyType>
                 </Currency>
+                <ConvertedBid>{`$${
+                  minBid ? minBid.slice(0, -5) : ''
+                }`}</ConvertedBid>
               </div>
               <div>
                 <Requirements>Hatch Ending In:</Requirements>
                 <CounterWrapper>
                   <DayCounter>
                     <CounterContent>
-                      <span>{timeDisplay.days}</span>
+                      <span style={{ height: '60px' }}>{timeDisplay.days}</span>
                     </CounterContent>
                     <CounterSubtitle>Days</CounterSubtitle>
                   </DayCounter>
@@ -140,6 +143,15 @@ const Currency = styled.div`
   font-weight: 700;
 `
 
+const ConvertedBid = styled.div`
+  font-family: 'Inter';
+  font-size: 13px;
+  font-weight: 400;
+  position: relative;
+  top: -5px;
+  text-align: left;
+`
+
 const CounterWrapper = styled.div`
   display: flex;
   @media (max-width: 900px) {
@@ -149,7 +161,7 @@ const CounterWrapper = styled.div`
 
 const DayCounter = styled.div`
   font-family: 'Inter';
-  font-size: 24px;
+  font-size: 44px;
   font-weight: 700;
   color: white;
   padding: 0px 10px;
@@ -171,6 +183,7 @@ const TimeCounter = styled.div`
 
 const CounterContent = styled.div`
   align-self: flex-start;
+  display: flex;
 `
 
 const CounterSubtitle = styled.div`
