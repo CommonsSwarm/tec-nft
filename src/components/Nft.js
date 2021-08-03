@@ -2,30 +2,18 @@
 import React, { useEffect, useState } from 'react'
 import { Button, GU } from '@commonsswarm/ui'
 import styled from 'styled-components'
+import { generateTimeDisplay } from '../utils/data-transform-utils'
 
 function Nft({ minBid, endDate }) {
-  const generateTimeDisplay = () => {
-    const rightJustNow = new Date().getTime()
-    const runway = endDate - rightJustNow
-    const stateObj = {
-      days: Math.floor(runway / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((runway % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      minutes: Math.floor((runway % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((runway % (1000 * 60)) / 1000),
-    }
-    return stateObj
-  }
-
-  const [timeDisplay, setTimeDisplay] = useState(generateTimeDisplay)
+  const [timeDisplay, setTimeDisplay] = useState(generateTimeDisplay())
   useEffect(() => {
-    setTimeDisplay(generateTimeDisplay)
+    setTimeDisplay(generateTimeDisplay(endDate))
     const interval = setInterval(
-      () => setTimeDisplay(generateTimeDisplay),
+      () => setTimeDisplay(generateTimeDisplay(endDate)),
       1000
     )
-
     return () => clearInterval(interval)
-  }, [])
+  }, [endDate])
 
   return (
     <div>
