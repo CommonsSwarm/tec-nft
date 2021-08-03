@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Split, GU } from '@commonsswarm/ui'
+import { Button, GU } from '@commonsswarm/ui'
 import styled from 'styled-components'
 
 function Nft({ minBid, endDate }) {
@@ -28,10 +28,12 @@ function Nft({ minBid, endDate }) {
 
   return (
     <div>
-      <Split
-        primary={<BotImg src="/bot.png" alt="hatch bot" />}
-        secondary={
-          <>
+      <Split>
+        <SplitPrimary>
+          <BotImg src="/bot.png" alt="hatch bot" />
+        </SplitPrimary>
+        <SplitSecondary>
+          <Box>
             <Title>The hatch bot</Title>
             <SubTitle>
               The top 10 participants will each receive this limited edition
@@ -75,19 +77,45 @@ function Nft({ minBid, endDate }) {
             <CustomButton href="https://hatch.tecommons.org">
               Participate in the hatch
             </CustomButton>
-          </>
-        }
-        secondaryWidth={`${75 * GU}px`}
-      />
+          </Box>
+        </SplitSecondary>
+      </Split>
     </div>
   )
 }
 
+const Split = styled.div`
+  display: block;
+  padding-bottom: ${3 * GU}px;
+  width: 100%;
+  @media (min-width: 900px) {
+    display: flex;
+  }
+`
+
+const SplitPrimary = styled.div`
+  flex-grow: 1;
+`
+
+const SplitSecondary = styled.div`
+  flex-shrink: 0;
+  flex-grow: 0;
+  @media (min-width: 1250px) {
+    margin-left: 8%;
+  }
+`
+
 const BotImg = styled.img`
   box-shadow: -20px -20px #defb48;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     display: flex;
     margin: auto;
+  }
+`
+
+const Box = styled.div`
+  @media (max-width: 1250px) {
+    transform: scale(0.7);
   }
 `
 
@@ -96,7 +124,7 @@ const Title = styled.h1`
   font-size: 66px;
   font-weight: 700;
   text-transform: uppercase;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     text-align: center;
     font-size: 60px;
   }
@@ -106,7 +134,7 @@ const SubTitle = styled.h2`
   font-family: 'Inter';
   font-size: 16px;
   font-weight: 400;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     text-align: center;
     font-size: 14px;
   }
@@ -118,7 +146,7 @@ const Wrapper = styled.div`
   max-width: 500px;
   margin-top: 10%;
   margin-bottom: 40px;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -130,7 +158,7 @@ const Requirements = styled.div`
   font-family: 'Bai Jamjuree';
   font-size: 18px;
   font-weight: 400;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     font-size: 16px;
   }
 `
@@ -140,7 +168,7 @@ const CurrencyType = styled.div`
   font-size: 18px;
   font-weight: 400;
   display: inline;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     font-size: 16px;
   }
 `
@@ -149,7 +177,7 @@ const Currency = styled.div`
   font-family: 'Inter';
   font-size: 44px;
   font-weight: 700;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     font-size: 40px;
   }
 `
@@ -162,14 +190,14 @@ const ConvertedBid = styled.div`
   top: -5px;
   text-align: left;
   opacity: 60%;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     font-size: 12px;
   }
 `
 
 const CounterWrapper = styled.div`
   display: flex;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     justify-content: center;
   }
 `
@@ -183,7 +211,7 @@ const DayCounter = styled.div`
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     font-size: 40px;
   }
 `
@@ -197,7 +225,7 @@ const TimeCounter = styled.div`
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     font-size: 22px;
   }
 `
@@ -213,7 +241,7 @@ const CounterSubtitle = styled.div`
   font-weight: 400;
   color: white;
   opacity: 60%;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     font-size: 12px;
   }
 `
@@ -225,7 +253,7 @@ const CustomButton = styled(Button)`
   text-transform: uppercase;
   width: 370px;
   height: 60px;
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     display: flex;
     margin: auto;
     font-size: 16px;

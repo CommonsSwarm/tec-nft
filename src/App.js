@@ -28,7 +28,7 @@ function App() {
   return (
     <Background>
       <img src={Heading} style={{ maxWidth: '100vw' }} alt="Hatch" />
-      <Layout style={{ marginTop: '50px' }}>
+      <Layout style={{ marginTop: '50px' }} breakpoints={{ large: 901 }}>
         <GlobalFonts />
         <Nft minBid={minBid} endDate={endDate} />
         <TopContributors contributors={contributors} />
