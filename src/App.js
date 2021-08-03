@@ -28,7 +28,7 @@ function App() {
   return (
     <Background>
       <img src={Heading} style={{ maxWidth: '100vw' }} alt="Hatch" />
-      <Layout style={{ marginTop: '25px' }}>
+      <Layout style={{ marginTop: '50px' }}>
         <GlobalFonts />
         <Nft minBid={minBid} endDate={endDate} />
         <TopContributors contributors={contributors} />
@@ -40,7 +40,12 @@ function App() {
 export default App
 
 const Background = styled.div`
-  background-color: #0b0a15;
+  background-image: url('/bg.png');
+  background-size: cover;
   overflow: hidden;
   max-width: 100vw;
+
+  @media (max-width: 900px) {
+    background-position: 25% 0%;
+  }
 `
