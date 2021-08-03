@@ -1,5 +1,4 @@
 import React from 'react'
-import Heading from './Heading.svg'
 import Nft from './components/Nft'
 import TopContributors from './components/TopContributors'
 import { useContributorsSubscription } from './hooks/useSubscriptions'
@@ -27,7 +26,6 @@ function App() {
 
   return (
     <Background>
-      <img src={Heading} style={{ maxWidth: '100vw' }} alt="Hatch" />
       <Layout style={{ marginTop: '50px' }} breakpoints={{ large: 901 }}>
         <GlobalFonts />
         <Nft minBid={minBid} endDate={endDate} />

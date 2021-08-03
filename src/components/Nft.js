@@ -89,6 +89,7 @@ const Split = styled.div`
   padding-bottom: ${3 * GU}px;
   width: 100%;
   @media (min-width: 900px) {
+    padding-top: ${16 * GU}px;
     display: flex;
   }
 `
