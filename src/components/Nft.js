@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { Button, GU } from '@commonsswarm/ui'
 import styled from 'styled-components'

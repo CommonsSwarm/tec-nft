@@ -28,6 +28,8 @@ const Wrapper = styled.div`
   max-width: 400px;
   @media (max-width: 900px) {
     margin: auto;
+    max-width: 380px;
+    padding: 0px 8px;
   }
 `
 
