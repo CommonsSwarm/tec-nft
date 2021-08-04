@@ -4,8 +4,21 @@ import { Button, GU } from '@commonsswarm/ui'
 import styled from 'styled-components'
 import { generateTimeDisplay } from '../utils/data-transform-utils'
 
+const TOKEN_PRICE_API_URL = `https://api.coingecko.com/api/v3/coins/${process.env.REACT_APP_COIN_ID}/tickers`
+
+const format = num => num.toLocaleString('en-US')
+
 function Nft({ minBid, endDate }) {
   const [timeDisplay, setTimeDisplay] = useState(generateTimeDisplay())
+  const [convertionFactor, setConvertionFactor] = useState(0)
+  const minAmount = Math.floor(
+    parseInt(minBid?.split(' ')[0].replace(',', '')) + 1
+  )
+  const convertedAmount = convertionFactor * minAmount
+
+  const symbol =
+    minBid?.split(' ')[1] === 'WXDAI' ? 'wxDAI' : minBid?.split(' ')[1]
+
   useEffect(() => {
     setTimeDisplay(generateTimeDisplay(endDate))
     const interval = setInterval(
@@ -15,15 +28,28 @@ function Nft({ minBid, endDate }) {
     return () => clearInterval(interval)
   }, [endDate])
 
+  useEffect(() => {
+    fetch(TOKEN_PRICE_API_URL)
+      .then(response => response.json())
+      .then(data => parseFloat(data.tickers[0].last))
+      .then(setConvertionFactor)
+  }, [])
+
   return (
     <div>
       <Split>
         <SplitPrimary>
-          <BotImg src="/bot.png" alt="hatch bot" />
+          <a
+            href={process.env.REACT_APP_NFT_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <NftImg src="/bot.png" alt="hatch bot" />
+          </a>
         </SplitPrimary>
         <SplitSecondary>
           <Box>
-            <Title>The hatch bot</Title>
+            <Title>{process.env.REACT_APP_NFT_NAME}</Title>
             <SubTitle>
               The top 10 participants will each receive this limited edition
               NFT.
@@ -32,12 +58,10 @@ function Nft({ minBid, endDate }) {
               <div>
                 <Requirements>Minimum to participate</Requirements>
                 <Currency>
-                  {minBid ? minBid.slice(0, -5) : ''}
-                  <CurrencyType>wxDAI</CurrencyType>
+                  {format(minAmount)}
+                  <CurrencyType> {symbol}</CurrencyType>
                 </Currency>
-                <ConvertedBid>{`$${
-                  minBid ? minBid.slice(0, -5) : ''
-                }`}</ConvertedBid>
+                <ConvertedBid>{`$${format(convertedAmount)}`}</ConvertedBid>
               </div>
               <div>
                 <Requirements>Hatch Ending In:</Requirements>
@@ -95,7 +119,7 @@ const SplitSecondary = styled.div`
   }
 `
 
-const BotImg = styled.img`
+const NftImg = styled.img`
   box-shadow: -20px -20px #defb48;
   @media (max-width: 900px) {
     display: flex;

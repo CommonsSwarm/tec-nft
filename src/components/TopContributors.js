@@ -13,10 +13,10 @@ const TopContributors = ({ contributors = [] }) => {
         <Contributor key={account}>
           <Position>{index + 1}. </Position>
           <Position>{`${account.slice(0, 9)}...${account.slice(-9)}`}</Position>
-          <Contribuition>{`${formattedTotalValue.slice(
-            0,
-            -6
-          )} wxDAI`}</Contribuition>
+          <Contribuition>{`${formattedTotalValue.replace(
+            'WXDAI',
+            'wxDAI'
+          )}`}</Contribuition>
         </Contributor>
       ))}
     </Wrapper>
@@ -25,7 +25,7 @@ const TopContributors = ({ contributors = [] }) => {
 
 const Wrapper = styled.div`
   background-color: inherit;
-  max-width: 500px;
+  max-width: 400px;
   @media (max-width: 900px) {
     margin: auto;
     max-width: 380px;
