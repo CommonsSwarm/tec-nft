@@ -9,6 +9,7 @@ const TOKEN_PRICE_API_URL = `https://api.coingecko.com/api/v3/coins/${process.en
 const format = num => num.toLocaleString('en-US')
 
 function Nft({ minBid, endDate }) {
+  const closed = endDate < new Date().getTime()
   const [timeDisplay, setTimeDisplay] = useState(generateTimeDisplay())
   const [convertionFactor, setConvertionFactor] = useState(0)
   const minAmount = Math.floor(
@@ -64,31 +65,43 @@ function Nft({ minBid, endDate }) {
                 <ConvertedBid>{`$${format(convertedAmount)}`}</ConvertedBid>
               </div>
               <div>
-                <Requirements>Hatch Ending In:</Requirements>
-                <CounterWrapper>
+                <Requirements>
+                  {!closed ? 'Hatch Ending In:' : 'Hatch Ended On:'}
+                </Requirements>
+                {(!closed && (
+                  <CounterWrapper>
+                    <DayCounter>
+                      <CounterContent>
+                        <span style={{ height: '60px' }}>
+                          {timeDisplay.days}
+                        </span>
+                      </CounterContent>
+                      <CounterSubtitle>Days</CounterSubtitle>
+                    </DayCounter>
+                    <TimeCounter>
+                      <CounterContent>{timeDisplay.hours}</CounterContent>
+                      <CounterSubtitle>Hours</CounterSubtitle>
+                    </TimeCounter>
+                    <TimeCounter>
+                      <CounterContent>{timeDisplay.minutes}</CounterContent>
+                      <CounterSubtitle>Minutes</CounterSubtitle>
+                    </TimeCounter>
+                    <TimeCounter>
+                      <CounterContent>{timeDisplay.seconds}</CounterContent>
+                      <CounterSubtitle>Seconds</CounterSubtitle>
+                    </TimeCounter>
+                  </CounterWrapper>
+                )) || (
                   <DayCounter>
-                    <CounterContent>
-                      <span style={{ height: '60px' }}>{timeDisplay.days}</span>
-                    </CounterContent>
-                    <CounterSubtitle>Days</CounterSubtitle>
+                    {endDate.toLocaleString('en-US', {
+                      dateStyle: 'medium',
+                    })}
                   </DayCounter>
-                  <TimeCounter>
-                    <CounterContent>{timeDisplay.hours}</CounterContent>
-                    <CounterSubtitle>Hours</CounterSubtitle>
-                  </TimeCounter>
-                  <TimeCounter>
-                    <CounterContent>{timeDisplay.minutes}</CounterContent>
-                    <CounterSubtitle>Minutes</CounterSubtitle>
-                  </TimeCounter>
-                  <TimeCounter>
-                    <CounterContent>{timeDisplay.seconds}</CounterContent>
-                    <CounterSubtitle>Seconds</CounterSubtitle>
-                  </TimeCounter>
-                </CounterWrapper>
+                )}
               </div>
             </Wrapper>
             <CustomButton href="https://hatch.tecommons.org">
-              Participate in the hatch
+              {!closed ? 'Participate in the hatch' : 'Visit the hatch'}
             </CustomButton>
           </Box>
         </SplitSecondary>
